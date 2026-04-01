@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================= */
+/* Root Design Tokens */
+/* ============================= */
+
+:root {
+  --brand-primary: #2d3cf5;
+  --brand-dark: #141554;
+  --accent-orange: #ff7d12;
+
+  --text-primary: #0a0a0f;
+  --text-secondary: #4a4a6a;
+
+  --bg-light: #f8f9ff;
+  --surface: #ffffff;
+}
+
+/* ============================= */
+/* Base Typography */
+/* ============================= */
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ============================= */
+/* UI Components */
+/* ============================= */
+
+@layer components {
+
+  /* ✅ updated: py-2.5 instead of py-3, px-5 instead of px-6 — compact buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-600 text-white font-semibold rounded-xl hover:bg-brand-700 active:bg-brand-800 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-sm;
+  }
+
+  /* ✅ updated: matching compact sizing */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-brand-600 font-semibold rounded-xl border border-brand-600 hover:bg-brand-50 active:bg-brand-100 transition-all duration-200 text-sm;
+  }
+
+  /* ✅ updated: matching compact sizing */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent-500 text-white font-semibold rounded-xl hover:bg-accent-600 active:bg-accent-700 transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-sm;
+  }
+
+  /* ✅ updated: text-2xl/3xl/4xl instead of text-3xl/4xl/5xl — less oversized headings */
+  .section-heading {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold text-neutral-950 leading-tight tracking-tight;
+  }
+
+  /* ✅ updated: text-base instead of text-lg — tighter subheadings */
+  .section-subheading {
+    @apply text-base text-gray-500 leading-relaxed max-w-2xl;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  /* ✅ updated: py-2.5 instead of py-3, added hover:border-gray-300 for better feedback */
+  .input-field {
+    @apply w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-white text-sm text-gray-900 placeholder-gray-400 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all duration-200;
+  }
+
+  /* ✅ updated: label utility class for form labels */
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+
+  .container-custom {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ✅ updated: py-16/py-20 instead of py-20/py-28 — less vertical bloat between sections */
+  .section-padding {
+    @apply py-16 md:py-20;
+  }
+
+}
+
+/* ============================= */
+/* Gradient Mesh Background */
+/* ============================= */
+
+.bg-mesh {
+  background-color: #ffffff;
+  background-image:
+    radial-gradient(at 40% 20%, rgba(3, 6, 40, 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 125, 18, 0.06) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(45, 60, 245, 0.05) 0px, transparent 50%),
+    radial-gradient(at 60% 80%, rgba(45, 60, 245, 0.06) 0px, transparent 50%);
+}
+
+/* ============================= */
+/* Scrollbar */
+/* ============================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c5d5;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9999bb;
+}
+
+/* ============================= */
+/* Divider */
+/* ============================= */
+
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+}
+
+/* ============================= */
+/* BLOG ARTICLE LAYOUT */
+/* ============================= */
+
+.blog-container {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem; /* ✅ updated: 1.25rem instead of 1.5rem on mobile */
+}
+
+/* HEADER */
+
+.blog-meta {
+  text-align: center;
+  font-size: 0.8125rem; /* ✅ updated: 13px — slightly smaller meta text */
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+/* ✅ updated: 2.25rem instead of 2.8rem — was too large */
+.blog-title {
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+/* ✅ updated: 1.0625rem instead of 1.1rem */
+.blog-excerpt {
+  text-align: center;
+  font-size: 1.0625rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* AUDIO PLAYER */
+
+.blog-audio {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* CONTENT */
+
+.blog-content {
+  margin-top: 1rem;
+}
+
+/* ✅ updated: 1.375rem instead of 1.6rem — proportional to new title size */
+.blog-content h2 {
+  font-size: 1.375rem;
+  margin-top: 2rem;  /* ✅ updated: 2rem instead of 2.5rem */
+  margin-bottom: 0.625rem;
+}
+
+/* ❌ FIXED BUG: was font-size: 0rem — text was invisible! */
+/* ✅ updated: 1rem (16px) — standard readable body text */
+.blog-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 0.875rem; /* ✅ updated: tighter paragraph spacing */
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  /* ✅ updated: 1.625rem instead of 2rem */
+  .blog-title {
+    font-size: 1.625rem;
+  }
+
+  .blog-excerpt {
+    font-size: 0.9375rem; /* ✅ updated: 15px */
+  }
+
+  .blog-content p {
+    font-size: 0.9375rem; /* ✅ updated: 15px — slightly smaller on mobile */
+  }
+
+}
