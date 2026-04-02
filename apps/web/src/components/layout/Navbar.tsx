@@ -27,7 +27,7 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/weblogo.png"
               alt="AIsprint Logo"
               width={120}
               height={32}
