@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
@@ -93,11 +92,10 @@ export default function ChatBox() {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
+        className={`fixed bottom-28 md:bottom-10 right-6 z-50 w-14 h-14 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
           isOpen
-          ? 'hidden md:flex bg-neutral-950'
-          : 'flex bg-neutral-900 hover:shadow-xl'
-          
+            ? 'hidden md:flex bg-neutral-950'
+            : 'flex bg-neutral-900 hover:shadow-xl'
         }`}
         title="Open AI Assistant"
         aria-label="Open AI Assistant"
@@ -120,11 +118,10 @@ export default function ChatBox() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed inset-0 md:inset-auto md:bottom-24 md:right-6 z-40 md:w-96 w-full md:h-[32rem] h-full bg-white md:rounded-2xl rounded-none shadow-2xl flex flex-col overflow-hidden border border-gray-200">
+        <div className="fixed inset-0 md:inset-auto md:bottom-36 md:right-6 z-50 md:w-96 w-full md:h-[32rem] h-full bg-white md:rounded-2xl rounded-none shadow-2xl flex flex-col overflow-hidden border border-gray-200">
           
           {/* Header */}
-            <div className="bg-neutral-950 text-white p-4 flex items-center justify-between">
-
+          <div className="bg-neutral-950 text-white p-4 flex items-center justify-between">
             <div>
               <h3 className="font-semibold text-sm">AIsprint Assistant</h3>
               <p className="text-xs text-blue-100">Online</p>
@@ -155,8 +152,7 @@ export default function ChatBox() {
                   }`}
                 >
                   {message.sender === 'bot' ? (
-                    <div className="prose prose-sm max-w-none prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-li:my-0 text-gray-800">
-
+                    <div className="prose prose-sm max-w-none text-gray-800">
                       <ReactMarkdown>{message.content}</ReactMarkdown>
                     </div>
                   ) : (
@@ -181,20 +177,14 @@ export default function ChatBox() {
               </div>
             ))}
 
-            {/* Loading Indicator */}
+            {/* Loading */}
             {isLoading && (
               <div className="flex justify-start">
                 <div className="bg-white border px-4 py-2 rounded-2xl">
                   <div className="flex gap-1">
                     <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                    <div
-                      className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                      style={{ animationDelay: '0.2s' }}
-                    />
-                    <div
-                      className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
-                      style={{ animationDelay: '0.4s' }}
-                    />
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                   </div>
                 </div>
               </div>
@@ -221,7 +211,6 @@ export default function ChatBox() {
               type="submit"
               disabled={isLoading || !inputValue.trim()}
               className="bg-neutral-950 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center"
-
             >
               ➤
             </button>
