@@ -20,6 +20,22 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-}
 
-module.exports = nextConfig
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.goaisprint.com",
+          },
+        ],
+        destination: "https://goaisprint.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;

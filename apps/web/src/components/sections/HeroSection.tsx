@@ -7,7 +7,7 @@ export default function HeroSection() {
   const { user, isAuthenticated } = useAuth()
 
   return (
-    <section className="relative bg-white pt-24 md:pt-28 lg:pt-32 pb-20 md:pb-24">
+    <section className="relative bg-white pt-24 md:pt-28 lg:pt-32 pb-20 md:pb-24 min-h-[75vh] flex items-center">
 
       {/* Top Right User */}
       {isAuthenticated && user && (
@@ -23,28 +23,34 @@ export default function HeroSection() {
         </div>
       )}
 
-      <div className="max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="w-full max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 text-center">
 
-        {/* 🔥 Top Badge */}
-        <div className="inline-flex items-center gap-2 md:gap-1 px-3 md:px-4 py-1.5 md:py-2 mb-6 md:mb-8 rounded-full bg-gray-100 border border-gray-300  text-xs md:text-sm text-gray-700">
-          <span>India’s top 1:1 live AI platform</span>
-
-          <div className="flex -space-x-2">
-          </div>
+        {/* Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 mb-5 rounded-full bg-gray-50 border border-gray-200 text-xs text-gray-500 tracking-wide font-medium">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+          AI Career Mentorship Platform
         </div>
 
-        {/* 🔥 Headline */}
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-black leading-[1.2] md:leading-[1.15] mb-4 md:mb-6">
-          Launch Your Career In <br className="hidden sm:block" />
-          <span> Artificial Intelligence</span>
+        {/* H1 */}
+        <h1 className="text-3xl sm:text-4xl md:text-[3.25rem] font-bold tracking-tight text-gray-950 leading-[1.1] mb-3 md:mb-4">
+          Learn AI. Build Real Projects.<br />
+          Launch Your Career in AI.
         </h1>
 
-        {/* 🔥 Subtitle */}
-        <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl md:max-w-2xl mx-auto mb-10 md:mb-12">
-          Learn in-demand AI skills with real-world projects, expert mentors, and industry ready curriculum designed to get you hired faster
+        {/* Subheadline */}
+        <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-md mx-auto mt-3">
+          Master machine learning and prompt engineering through hands-on projects and 1:1 mentorship.
         </p>
 
-      
+        {/* CTA */}
+        <div className="mt-5">
+          <Link
+            href="/courses"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-gray-950 text-white text-sm font-semibold hover:bg-gray-800 shadow-sm hover:shadow-md transition-all"
+          >
+            Start Your AI Journey
+          </Link>
+        </div>
 
       </div>
     </section>
